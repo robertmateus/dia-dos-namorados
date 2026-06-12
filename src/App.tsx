@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Heart, Menu } from "lucide-react";
 
@@ -27,6 +27,20 @@ export default function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audioUrl] = useState("/musica.mp3");
+  const [currentTrack] = useState("John Legend - All of Me");
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.play().catch(() => setIsPlaying(false));
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
 
   // Core Customization Settings
   const [names, setNames] = useState<{ groom: string; bride: string }>(() => {
@@ -230,6 +244,9 @@ export default function App() {
             heroImage={heroImage}
             setHeroImage={setHeroImage}
             setActiveTab={setActiveTab}
+            setIsPlaying={setIsPlaying}
+            isPlaying={isPlaying}
+            currentTrack={currentTrack}
           />
         );
       case "timeline":
@@ -274,6 +291,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex text-brand-charcoal bg-brand-cream/10 dark:bg-[#111] dark:text-[#eee] transition-colors duration-300">
+      {/* Audio Global - persiste entre abas */}
+      <audio ref={audioRef} src={audioUrl} loop preload="auto" />
       <CollapsibleSidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}

@@ -87,15 +87,7 @@ export default function FamilySection({
         </p>
       </div>
 
-      <div className="flex justify-end gap-3 mb-8">
-        <button
-          onClick={onResetMembers}
-          className="text-xs text-brand-gold-dark hover:text-brand-wine dark:text-brand-gold flex items-center gap-1.5 border border-brand-gold/25 px-3 py-1.5 rounded uppercase font-semibold active:scale-95 cursor-pointer"
-          id="reset-family-members-btn"
-        >
-          <RefreshCw className="w-3" /> Restaurar Retratos Originais
-        </button>
-      </div>
+      <div className="flex justify-end gap-3 mb-8"></div>
 
       {/* Editing overlay panel */}
       <AnimatePresence>

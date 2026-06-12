@@ -23,6 +23,9 @@ interface MainDashboardProps {
   heroImage: string;
   setHeroImage: (url: string) => void;
   setActiveTab: (tab: string) => void;
+  isPlaying: boolean;
+  setIsPlaying: (v: boolean) => void;
+  currentTrack: string;
 }
 
 export default function MainDashboard({
@@ -33,64 +36,12 @@ export default function MainDashboard({
   heroImage,
   setHeroImage,
   setActiveTab,
+  isPlaying,
+  setIsPlaying,
+  currentTrack,
 }: MainDashboardProps) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    const savedUrl = localStorage.getItem("always_yours_audio_url");
-    if (
-      savedUrl &&
-      savedUrl.startsWith("http") &&
-      !savedUrl.includes(window.location.host)
-    ) {
-      localStorage.removeItem("always_yours_audio_url");
-      localStorage.removeItem("always_yours_audio_name");
-      window.location.reload();
-    }
-  }, []);
-
-  const [audioUrl, setAudioUrl] = useState<string>(() => {
-    const saved = localStorage.getItem("always_yours_audio_url");
-    return saved && !saved.startsWith("http") ? saved : "/musica.mp3";
-  });
-
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const [currentTrack, setCurrentTrack] = useState(() => {
-    return (
-      localStorage.getItem("always_yours_audio_name") || "Nossa Música Tema"
-    );
-  });
-
   const [showConfig, setShowConfig] = useState(false);
-
-  useEffect(() => {
-    if (!audioRef.current) return;
-
-    if (
-      audioRef.current.src !== window.location.origin + audioUrl &&
-      !audioUrl.startsWith("http")
-    ) {
-      audioRef.current.src = audioUrl;
-    } else if (
-      audioUrl.startsWith("http") &&
-      audioRef.current.src !== audioUrl
-    ) {
-      audioRef.current.src = audioUrl;
-    }
-
-    if (isPlaying) {
-      audioRef.current.play().catch((err) => {
-        console.log(
-          "O player de áudio foi retido pelas políticas do navegador. Interaja com a página primeiro.",
-          err,
-        );
-        setIsPlaying(false);
-      });
-    } else {
-      audioRef.current.pause();
-    }
-  }, [audioUrl, isPlaying]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [tempGroom, setTempGroom] = useState(names.groom);
   const [tempBride, setTempBride] = useState(names.bride);
@@ -268,8 +219,6 @@ export default function MainDashboard({
 
   return (
     <div className="relative w-full min-h-screen bg-brand-cream/40 dark:bg-[#151313] transition-colors duration-300">
-      <audio ref={audioRef} src={audioUrl} loop preload="auto" />
-
       {/* Decorative Sparkles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
         {sparkles.map((sp) => (

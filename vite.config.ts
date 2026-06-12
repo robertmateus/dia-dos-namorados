@@ -5,7 +5,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig(() => {
   return {
-    base: "/dia-dos-namorados/", // troque pelo nome do seu repositório
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

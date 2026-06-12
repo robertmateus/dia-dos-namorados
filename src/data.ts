@@ -29,7 +29,7 @@ export const INITIAL_TIMELINE_EVENTS: TimelineEvent[] = [
   },
   {
     id: "2",
-    year: "15/06/2019",
+    year: "24/05/2018",
     title: "O Pedido de Namoro",
     description:
       "Um dia muito especial que mudou o rumo da minha vida para sempre. O momento em que você aceitou segurar a minha mão e se tornou a minha primeira e única namorada.",

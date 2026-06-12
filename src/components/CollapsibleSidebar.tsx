@@ -170,9 +170,7 @@ export default function CollapsibleSidebar({
         <button
           onClick={toggleDarkMode}
           className={`w-full flex items-center p-2.5 rounded hover:bg-white/5 text-[#fbdbde]/80 hover:text-white transition-all cursor-pointer ${
-            !collapsed || mobileOpen
-              ? "justify-between gap-4"
-              : "justify-center"
+            !collapsed || mobileOpen ? "justify-center gap-4" : "justify-center"
           }`}
           title="Alternar Modo Escuro"
           id="mode-toggle-btn"
@@ -194,7 +192,7 @@ export default function CollapsibleSidebar({
         {(!collapsed || mobileOpen) && (
           <div className="text-center pt-1">
             <p className="text-[10px] text-brand-gold/60 tracking-widest font-serif font-semibold">
-              11 DE JUNHO DE 2026
+              12 DE JUNHO DE 2026
             </p>
             <p className="text-[9px] text-[#fbdbde]/40 mt-1 uppercase">
               Sempre &amp; Para Sempre

@@ -7,15 +7,15 @@ import {
 } from "./types";
 
 // Import local images from assets
-import robert from "./assets/images/robert.jpg";
+import robert from "./assets/images/robert.webp";
 import maria from "./assets/images/maria.webp";
 import isis from "./assets/images/isis.webp";
-import isis1 from "./assets/images/isis1.jpg";
+import isis1 from "./assets/images/isis1.webp";
 
-import O_pedido from "./assets/images/O_pedido.jpeg";
-import O_pedido_casamento from "./assets/images/O_pedido_casamento.jpeg";
+import O_pedido from "./assets/images/O_pedido.webp";
+import O_pedido_casamento from "./assets/images/O_pedido_casamento.webp";
 import casamento from "./assets/images/casamento.webp";
-import nos_conhecemos from "./assets/images/nos_conhecemos.jpeg";
+import nos_conhecemos from "./assets/images/nos_conhecemos.webp";
 
 export const INITIAL_TIMELINE_EVENTS: TimelineEvent[] = [
   {

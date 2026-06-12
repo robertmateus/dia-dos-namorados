@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import capa1 from "../assets/images/capa1.jpg";
+import capa1 from "../assets/images/capa1.webp";
 import {
   Heart,
   Clock,

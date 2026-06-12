@@ -11,7 +11,7 @@ import {
 import { TimelineEvent, LoveLetter, FamilyMember, LoveReason } from "./types";
 
 // Asset Imports
-import capa from "./assets/images/capa.png";
+import capa from "./assets/images/capa.webp";
 
 // Component Imports
 import CollapsibleSidebar from "./components/CollapsibleSidebar";

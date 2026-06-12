@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Dancing+Script:wght@400..700&display=swap");
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-handy: "Dancing Script", cursive;
+
+  --color-brand-wine: #410007;
+  --color-brand-wine-light: #630d16;
+  --color-brand-gold: #c5a059;
+  --color-brand-gold-light: #e9c349;
+  --color-brand-gold-dark: #735c00;
+  --color-brand-cream: #fefaf0;
+  --color-brand-blush: #fbdbde;
+  --color-brand-charcoal: #1a1c1c;
+  --color-brand-slate: #2f3131;
+  --color-brand-pink-container: #ffe088;
+}
+
+/* =============================================
+   RESPONSIVIDADE GLOBAL - MOBILE-FIRST
+   ============================================= */
+
+:root {
+  --content-max-width: 1200px;
+}
+
+/*
+  1. CONTAINER CENTRALIZADO COM MAX-WIDTH
+     - Mobile: padding lateral seguro, sem max-width restritivo
+     - Desktop: max-width + centralizado horizontalmente
+*/
+.content-container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .content-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/*
+  2. CENTRALIZAÇÃO VERTICAL/HORIZONTAL PARA MOBILE
+     - Flexbox full-screen para centrar conteúdo em pé
+     - Elementos lado a lado viram coluna única
+*/
+.flex-center-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .flex-center-mobile {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*
+  3. TOUCH TARGETS MÍNIMOS (44x44pt)
+     - Garante que botões e links sejam confortáveis no mobile
+*/
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.touch-target-sm {
+  min-height: 36px;
+  min-width: 36px;
+}
+
+/*
+  4. GRID RESPONSIVO DE QUEBRA AUTOMÁTICA
+     - Mobile: 1 coluna → Tablet: 2 colunas → Desktop: 3+ colunas
+*/
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.grid-responsive-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/*
+  5. PREVENIR SCROLL HORIZONTAL EM QUALQUER VIEWPORT
+*/
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  6. FONTES CONFORTÁVEIS NO MOBILE
+*/
+@media (max-width: 639px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Custom CSS to enable premium layouts */
+.letter-paper {
+  background-image: linear-gradient(#e5e5e5 0.1em, transparent 0.1em);
+  background-size: 100% 2rem;
+  line-height: 2rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a059;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #410007;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.sparkle-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffe088;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+}

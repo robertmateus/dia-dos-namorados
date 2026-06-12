@@ -1,0 +1,6 @@
+{
+  "name": "Six Years of Always",
+  "description": "Celebração de casamento de 6 anos com linha do tempo de amor, galeria de fotos dinâmica, mimos e contadores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

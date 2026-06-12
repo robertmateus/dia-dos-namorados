@@ -8,13 +8,13 @@ import {
 
 // Import local images from assets
 import robert from "./assets/images/robert.jpg";
-import maria from "./assets/images/maria.jpg";
-import isis from "./assets/images/isis.jpg";
+import maria from "./assets/images/maria.webp";
+import isis from "./assets/images/isis.webp";
 import isis1 from "./assets/images/isis1.jpg";
 
 import O_pedido from "./assets/images/O_pedido.jpeg";
 import O_pedido_casamento from "./assets/images/O_pedido_casamento.jpeg";
-import casamento from "./assets/images/casamento.png";
+import casamento from "./assets/images/casamento.webp";
 import nos_conhecemos from "./assets/images/nos_conhecemos.jpeg";
 
 export const INITIAL_TIMELINE_EVENTS: TimelineEvent[] = [
